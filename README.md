@@ -16,5 +16,6 @@ This project was our first dive into how machine learning and natural language p
 
 ## SPOC (Species Occurrences)
 [Source code](https://github.com/sul-dlss-labs/spoc)
+
 Observations of marine plants and animals are “hidden” in the text of undergraduate student research papers (Paper > TIFF > OCR > plain text). Researchers need this information but can’t find it, access it, or use it. The goal of this project is to extract species occurrences (genus-species, place, time) from student papers held in libraries along the western coast of the U.S.
 
