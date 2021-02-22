@@ -9,7 +9,7 @@ This project was our first dive into how machine learning and natural language p
 **Objective**: To become familiar with the data, experiment with methods, and determine whether we can successfully automate or semi-automate FAST subject headings for ETDs.  
 
 **Outcomes:**
-- PDF to TXT (to retrieve pdf from our repository and convert to txt for pre-processing)
+- [druid_2_text](https://github.com/sul-dlss-labs/druid_2_text) (to retrieve pdf from our repository and convert to txt for pre-processing)
 - Document Classifier (to extract bibliographies)
 - [Biology ETDs FAST tagging app](https://biology-fast-etds.herokuapp.com/)
 - [Abstract Similarity/clustering app](https://etd-abstract-similarity.herokuapp.com/)
