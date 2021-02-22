@@ -10,7 +10,7 @@ This project was our first dive into how machine learning and natural language p
 
 **Outcomes:**
 - [druid_2_text](https://github.com/sul-dlss-labs/druid_2_text) (to retrieve pdf from our repository and convert to txt for pre-processing)
-- Document Classifier (to extract bibliographies)
+- [Document Structure Classifier](https://github.com/sul-dlss-labs/etd_structure_classifier) (to extract bibliographies)
 - [Biology ETDs FAST tagging app](https://biology-fast-etds.herokuapp.com/)
 - [Abstract Similarity/clustering app](https://etd-abstract-similarity.herokuapp.com/)
 
