@@ -17,9 +17,9 @@ This project was our first dive into how machine learning and natural language p
 - [Abstract Similarity/clustering app](https://etd-abstract-similarity.herokuapp.com/)
 
 ### 2. SPOC (Species Occurrences)
-[Github Repository](https://github.com/sul-dlss-labs/spoc)
+[Github Repository](https://github.com/sul-dlss-labs/spoc) - Code repository and project communications
 
-[Project Book](https://sul-dlss-labs.github.io/spoc/)
+[Project Book](https://sul-dlss-labs.github.io/spoc/) - Data, models, and documentation of the project. 
 
 Observations of marine plants and animals are “hidden” in the text of undergraduate student research papers (Paper > TIFF > OCR > plain text). These historical observations are important historical markers for studies of biodiversity and the effects of climate change on species. The goal of this project is to extract species occurrences (genus-species, place, time) from student papers held in libraries along the western coast of the U.S., verify those observations, and contribute them to the [Global Biodiversity Information Facilty (GBIF)](https://www.gbif.org/). 
 
