@@ -4,8 +4,19 @@ The site is a window into work at Stanford Libraries to build capacity in AI whi
 
 The Stanford Libraries Steering Group formed in 2020 to shape and guide the effort. The group produced a document, [Stanford Libraries AI Guiding Values](Libraries_AI_Guiding_Values.pdf) to explicitly address the ways we think the ethos of the library needs to be reflected in the ways we use this technology. 
 
+## CURRENT - ACTIVE
 
-### 1. Electronic Theses and Dissertations
+
+### SPOC (Species Occurrences)
+[Github Repository](https://github.com/sul-dlss-labs/spoc) - Code repository and project communications
+
+[Project Book](https://sul-dlss-labs.github.io/spoc/) - Data, models, and documentation of the project. 
+
+Observations of marine plants and animals are “hidden” in the text of undergraduate student research papers (Paper > TIFF > OCR > plain text). These historical observations are important historical markers for studies of biodiversity and the effects of climate change on species. The goal of this project is to extract species occurrences (genus-species, place, time) from student papers held in libraries along the western coast of the U.S., verify those observations, and contribute them to the [Global Biodiversity Information Facilty (GBIF)](https://www.gbif.org/). 
+
+## PREIVOUS PROJECTS
+
+### Electronic Theses and Dissertations
 This project was our first dive into how machine learning and natural language processing might help us automate the assignment of subject headings from the [FAST (Faceted Application of Subject Terminology)](https://www.oclc.org/research/areas/data-science/fast.html) vocabulary to ETDs. 
 
 **Objective**: To become familiar with the data, experiment with methods, and determine whether we can successfully automate or semi-automate FAST subject headings for ETDs.  
@@ -15,11 +26,3 @@ This project was our first dive into how machine learning and natural language p
 - [Document Structure Classifier](https://github.com/sul-dlss-labs/etd_structure_classifier) (to extract bibliographies)
 - [Biology ETDs FAST tagging app](https://biology-fast-etds.herokuapp.com/)
 - [Abstract Similarity/clustering app](https://etd-abstract-similarity.herokuapp.com/)
-
-### 2. SPOC (Species Occurrences)
-[Github Repository](https://github.com/sul-dlss-labs/spoc) - Code repository and project communications
-
-[Project Book](https://sul-dlss-labs.github.io/spoc/) - Data, models, and documentation of the project. 
-
-Observations of marine plants and animals are “hidden” in the text of undergraduate student research papers (Paper > TIFF > OCR > plain text). These historical observations are important historical markers for studies of biodiversity and the effects of climate change on species. The goal of this project is to extract species occurrences (genus-species, place, time) from student papers held in libraries along the western coast of the U.S., verify those observations, and contribute them to the [Global Biodiversity Information Facilty (GBIF)](https://www.gbif.org/). 
-
