@@ -2,7 +2,7 @@
 
 The site is a window into work at Stanford Libraries to build capacity in AI while experimenting with applications of AI on library materials and in library processes. We approach building capacity as a cross-library effort. While an essential part of the effort is giving developers an opportunity to get their hands on new tools and understand new ways of working, it is also an effort to familiarize people from all parts of the library with the potential of AI so that they can identify possible useful applications of the technology, help shape the projects, assess outcomes (at every step) and bring domain expertise to the challenges that arise. 
 
-The Stanford Libraries Steering Group formed in 2020 to shape and guide the effort. The group produced a document, [Stanford Libraries AI Guiding Values](Libraries_AI_Guiding_Values.pdf) to explicitly address the ways we think the ethos of the library needs to be reflected in the ways we use this technology. 
+The Stanford Libraries Steering Group formed in 2020 to shape and guide the effort. The group produced a document, [Stanford Libraries AI Guiding Values](guiding-values.tex) to explicitly address the ways we think the ethos of the library needs to be reflected in the ways we use this technology. 
 
 ## CURRENT - ACTIVE
 
