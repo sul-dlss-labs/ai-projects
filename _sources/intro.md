@@ -13,9 +13,9 @@ The Stanford Libraries Steering Group formed in 2020 to shape and guide the effo
 
 [Github Repository](https://github.com/sul-dlss-labs/spoc) - Code repository and project communications
 
-Observations of marine plants and animals are “hidden” in the text of undergraduate student research papers (Paper > TIFF > OCR > plain text). These historical observations are important historical markers for studies of biodiversity and the effects of climate change on species. The goal of this project is to extract species occurrences (genus-species, place, time) from student papers held in libraries along the western coast of the U.S., verify those observations, and contribute them to the [Global Biodiversity Information Facilty (GBIF)](https://www.gbif.org/). 
+Observations of marine plants and animals are “hidden” in the text of undergraduate student research papers (Paper > TIFF > OCR > plain text). These historical observations are important historical markers for studies of biodiversity and the effects of climate change on species. The goal of this project is to extract species occurrences (genus-species, place, time) from student papers held in libraries along the western coast of the U.S., verify those observations, and contribute them to the [Global Biodiversity Information Facility (GBIF)](https://www.gbif.org/). 
 
-## PREIVOUS PROJECTS
+## PREVIOUS PROJECTS
 
 ### Electronic Theses and Dissertations
 This project was our first dive into how machine learning and natural language processing might help us automate the assignment of subject headings from the [FAST (Faceted Application of Subject Terminology)](https://www.oclc.org/research/areas/data-science/fast.html) vocabulary to ETDs. 
