@@ -1,10 +1,41 @@
 ---
-title: "About this site"
+title: "The AI Steering Group"
 description: |
-  Some additional details about the website
+  Bringing all of the library into the conversation.
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+In April 2020, Stanford Libraries chartered a group drawn from units across the library to steer its overall AI program, to ensure its various activities are well-communicated and integrated, and to drive individual project efforts. The group provides conceptual, strategic, and tactical steering for AI within the Libraries. 
+
+# 2020-2021 Steering Group
+
+*Digital Library Systems and Services*
+
+- Tom Cramer, Associate University Librarian and Director
+- Nicole Coleman, Digital Research Architect
+- Jeremy Nelson, Software Engineer
+- Jessie Keck (until March 2021)
+
+*Technical and Access Services*
+
+- Arcadia Falcone, Metadata Librarian
+- Ryan Lieu, Conservation Operations Coordinator
+- Kayleigh Reed, Ordering Specialist, Acquisitions
+
+*Science and Engineering Resource Group*
+
+- Stace Maples, Assistant Director of Geospatial Collections & Services
+- Amanda Whitmire, Head Librarian and Bibliographer
+
+*Center for Interdisciplinary Digital Research*
+
+- Claudia Engel, Academic Technology Specialist for Anthropology
+- Peter Broadwell, Digital Scholarship Research Developer
+
+*Special Collections*
+
+- Ben Albritton, Rare Book Curator
+- Josh Schneider, University Archivist
 

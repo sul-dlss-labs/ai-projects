@@ -1,12 +1,14 @@
 name: "ai-projects"
-title: "AI Projects"
-description: |
-  AI Projects
+title: "Library AI Trials"
+description: "Stanford Libraries AI Steering Group"
+  
 output_dir: "docs"
 navbar:
+  logo:
+    image: images/logo.png
+    href: http://library-ai.stanford.edu
   right:
-    - text: "Home"
-      href: index.html
     - text: "About"
       href: about.html
+
 output: distill::distill_article

@@ -2,19 +2,19 @@
   "articles": [
     {
       "path": "about.html",
-      "title": "About this site",
-      "description": "Some additional details about the website",
+      "title": "The AI Steering Group",
+      "description": "Bringing all of the library into the conversation.",
       "author": [],
-      "contents": "\n\n\n\n",
-      "last_modified": "2021-06-17T13:15:26-07:00"
+      "contents": "\nIn April 2020, Stanford Libraries chartered a group drawn from units across the library to steer its overall AI program, to ensure its various activities are well-communicated and integrated, and to drive individual project efforts. The group provides conceptual, strategic, and tactical steering for AI within the Libraries.\n2020-2021 Steering Group\nDigital Library Systems and Services\nTom Cramer, Associate University Librarian and Director\nNicole Coleman, Digital Research Architect\nJeremy Nelson, Software Engineer\nJessie Keck (until March 2021)\nTechnical and Access Services\nArcadia Falcone, Metadata Librarian\nRyan Lieu, Conservation Operations Coordinator\nKayleigh Reed, Ordering Specialist, Acquisitions\nScience and Engineering Resource Group\nStace Maples, Assistant Director of Geospatial Collections & Services\nAmanda Whitmire, Head Librarian and Bibliographer\nCenter for Interdisciplinary Digital Research\nClaudia Engel, Academic Technology Specialist for Anthropology\nPeter Broadwell, Digital Scholarship Research Developer\nSpecial Collections\nBen Albritton, Rare Book Curator\nJosh Schneider, University Archivist\n\n\n\n",
+      "last_modified": "2021-06-18T09:09:35-07:00"
     },
     {
       "path": "index.html",
-      "title": "AI Projects",
-      "description": "Welcome to the website. I hope you enjoy it!\n",
+      "title": "Library AI Trials",
+      "description": "Building, testing, and questioning AI in libraries.",
       "author": [],
-      "contents": "\n\n\n\n",
-      "last_modified": "2021-06-17T13:15:28-07:00"
+      "contents": "\n\nThe site is a window into work at Stanford Libraries to build capacity in AI while experimenting with applications of AI on library materials and in library processes. We approach building capacity as a cross-library effort. While an essential part of the effort is giving developers an opportunity to get their hands on new tools and understand new ways of working, it is also an effort to familiarize people from all parts of the library with the potential of AI so that they can identify possible useful applications of the technology, help shape the projects, assess outcomes (at every step) and bring domain expertise to the challenges that arise.\n\n\nThe Stanford Libraries Steering Group formed in 2020 to shape and guide the effort. The group produced a document, Stanford Libraries AI Guiding Values to explicitly address the ways we think the ethos of the library needs to be reflected in the ways we use this technology.\n\n\nCURRENT - ACTIVE¶\n\n\nSPOC (Species Occurrences)¶\n\n\nProject Book - Data, models, and documentation of the project\n\n\nGithub Repository - Code repository and project communications\n\n\nObservations of marine plants and animals are “hidden” in the text of undergraduate student research papers (Paper > TIFF > OCR > plain text). These historical observations are important historical markers for studies of biodiversity and the effects of climate change on species. The goal of this project is to extract species occurrences (genus-species, place, time) from student papers held in libraries along the western coast of the U.S., verify those observations, and contribute them to the Global Biodiversity Information Facilty (GBIF).\n\n\n\nPREVIOUS PROJECTS¶\n\n\n\nElectronic Theses and Dissertations¶\n\n\nThis project was our first dive into how machine learning and natural language processing might help us automate the assignment of subject headings from the FAST (Faceted Application of Subject Terminology) vocabulary to ETDs.\n\n\nObjective: To become familiar with the data, experiment with methods, and determine whether we can successfully automate or semi-automate FAST subject headings for ETDs.\n\n\nOutcomes:\n\n\n\ndruid_2_text (to retrieve pdf from our repository and convert to txt for pre-processing)\n\n\n\n\nDocument Structure Classifier (to extract bibliographies)\n\n\n\n\nBiology ETDs FAST tagging app\n\n\n\n\nAbstract Similarity/clustering app\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "last_modified": "2021-06-18T09:09:35-07:00"
     }
   ],
   "collections": []
