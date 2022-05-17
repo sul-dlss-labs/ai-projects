@@ -50,16 +50,17 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  { color: #00769e; background-color: #f1f3f5; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span { color: #00769e; } /* Normal */
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { color: #20794d; } /* Attribute */
+code span.at { color: #657422; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
+code span.cf { color: #00769e; } /* ControlFlow */
 code span.ch { color: #20794d; } /* Char */
 code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #5e5e5e; } /* Comment */
@@ -73,17 +74,18 @@ code span.fl { color: #ad0000; } /* Float */
 code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
+code span.kw { color: #00769e; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
+code span.ot { color: #00769e; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #20794d; } /* SpecialChar */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
 code span.vs { color: #20794d; } /* VerbatimString */
 code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
+
 
   <!--radix_placeholder_meta_tags-->
   <title>Library AI Trials</title>
@@ -455,7 +457,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   </style>
 
-  <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
   <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
   <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
@@ -1027,10 +1029,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     position: relative;
     margin-bottom: 2.5em;
     margin-top: 1.5em;
-  }
-
-  .figure img {
-    width: 100%;
   }
 
   .figure .caption {
@@ -1862,7 +1860,16 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
+          var fn = $(this).children()[0]
+          $(this).html(fn.shadowRoot.querySelector("sup"))
+          $(this).id = fn.id
+          fn.remove()
+        }
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          return "<p>" + $('#ref-' + ref).html() + "</p>";
+        }).join("\n");
         window.tippy(this, {
           allowHTML: true,
           content: refHtml,
@@ -1873,6 +1880,31 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
           placement: 'bottom-start'
         });
       });
+
+      // fix footnotes in tables (#411)
+      // replacing broken distill.pub feature
+      $('table d-footnote').each(function() {
+        // we replace internal showAtNode methode which is triggered when hovering a footnote
+        this.hoverBox.showAtNode = function(node) {
+          // ported from https://github.com/distillpub/template/pull/105/files
+          calcOffset = function(elem) {
+              let x = elem.offsetLeft;
+              let y = elem.offsetTop;
+              // Traverse upwards until an `absolute` element is found or `elem`
+              // becomes null.
+              while (elem = elem.offsetParent && elem.style.position != 'absolute') {
+                  x += elem.offsetLeft;
+                  y += elem.offsetTop;
+              }
+
+              return { left: x, top: y };
+          }
+          // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop
+          const bbox = node.getBoundingClientRect();
+          const offset = calcOffset(node);
+          this.show([offset.left + bbox.width, offset.top + bbox.height]);
+        }
+      })
 
       // clear polling timer
       clearInterval(tid);
@@ -1972,6 +2004,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // mark non-body figures created by knitr chunks as 100% width
     $('.layout-chunk').each(function(i, val) {
       var figures = $(this).find('img, .html-widget');
+      // ignore leaflet img layers (#106)
+      figures = figures.filter(':not(img[class*="leaflet"])')
       if ($(this).attr('data-layout') !== "l-body") {
         figures.css('width', '100%');
       } else {
@@ -1994,7 +2028,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // get rid of index.html references in header
     if (window.location.protocol !== "file:") {
       $('.distill-site-header a[href]').each(function(i,val) {
-        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+        $(this).attr('href', $(this).attr('href').replace(/^index[.]html/, "./"));
       });
     }
 
@@ -2033,7 +2067,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2086,10 +2120,24 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 <div class="d-article">
 <p>
-The site is a window into work at Stanford Libraries to build capacity in AI while experimenting with applications of AI on library materials and in library processes. We approach building capacity as a cross-library effort. While an essential part of the effort is giving developers an opportunity to get their hands on new tools and understand new ways of working, it is also an effort to familiarize people from all parts of the library with the potential of AI so that they can identify useful applications of the technology, help shape the projects, assess outcomes (at every step) and bring domain expertise to the challenges that arise.
+The site is a window into work at Stanford Libraries to build capacity
+in AI while experimenting with applications of AI on library materials
+and in library processes. We approach building capacity as a
+cross-library effort. While an essential part of the effort is giving
+developers an opportunity to get their hands on new tools and understand
+new ways of working, it is also an effort to familiarize people from all
+parts of the library with the potential of AI so that they can identify
+useful applications of the technology, help shape the projects, assess
+outcomes (at every step) and bring domain expertise to the challenges
+that arise.
 </p>
 <p>
-The Stanford Libraries Steering Group formed in 2020 to shape and guide the effort. The group produced a document, <span class="xref myst">Stanford Libraries AI Guiding Values</span> to explicitly address the ways we think the ethos of the library needs to be reflected in the ways we use this technology.
+The Stanford Libraries Steering Group formed in 2020 to shape and guide
+the effort. The group produced a document,
+<a href="https://github.com/sul-dlss-labs/ai-projects/raw/main/docs/Stanford%20Libraries%20AI%20Guiding%20Values.pdf">Stanford
+Libraries AI Guiding Values</a>, to explicitly address the ways we think
+the ethos of the library needs to be reflected in the ways we use this
+technology.
 </p>
 <section id="current-active">
 <h2>
@@ -2100,13 +2148,24 @@ CURRENT - ACTIVE
 SPOC (Species Occurrences)
 </h3>
 <p>
-<a class="reference external" href="https://sul-dlss-labs.github.io/spoc/">Project Book</a> - Data, models, and documentation of the project
+<a class="reference external" href="https://sul-dlss-labs.github.io/spoc/">Project
+Book</a> - Data, models, and documentation of the project
 </p>
 <p>
-<a class="reference external" href="https://github.com/sul-dlss-labs/spoc">Github Repository</a> - Code repository and project communications
+<a class="reference external" href="https://github.com/sul-dlss-labs/spoc">Github
+Repository</a> - Code repository and project communications
 </p>
 <p>
-Observations of marine plants and animals are “hidden” in the text of undergraduate student research papers (Paper &gt; TIFF &gt; OCR &gt; plain text). These historical observations are important historical markers for studies of biodiversity and the effects of climate change on species. The goal of this project is to extract species occurrences (genus-species, place, time) from student papers held in libraries along the western coast of the U.S., verify those observations, and contribute them to the <a class="reference external" href="https://www.gbif.org/">Global Biodiversity Information Facilty (GBIF)</a>.
+Observations of marine plants and animals are “hidden” in the text of
+undergraduate student research papers (Paper &gt; TIFF &gt; OCR &gt;
+plain text). These historical observations are important historical
+markers for studies of biodiversity and the effects of climate change on
+species. The goal of this project is to extract species occurrences
+(genus-species, place, time) from student papers held in libraries along
+the western coast of the U.S., verify those observations, and contribute
+them to the
+<a class="reference external" href="https://www.gbif.org/">Global
+Biodiversity Information Facilty (GBIF)</a>.
 </p>
 </section>
 </section>
@@ -2119,10 +2178,16 @@ PREVIOUS PROJECTS
 Electronic Theses and Dissertations
 </h3>
 <p>
-This project was our first dive into how machine learning and natural language processing might help us automate the assignment of subject headings from the <a class="reference external" href="https://www.oclc.org/research/areas/data-science/fast.html">FAST (Faceted Application of Subject Terminology)</a> vocabulary to ETDs.
+This project was our first dive into how machine learning and natural
+language processing might help us automate the assignment of subject
+headings from the
+<a class="reference external" href="https://www.oclc.org/research/areas/data-science/fast.html">FAST
+(Faceted Application of Subject Terminology)</a> vocabulary to ETDs.
 </p>
 <p>
-<strong>Objective</strong>: To become familiar with the data, experiment with methods, and determine whether we can successfully automate or semi-automate FAST subject headings for ETDs.
+<strong>Objective</strong>: To become familiar with the data, experiment
+with methods, and determine whether we can successfully automate or
+semi-automate FAST subject headings for ETDs.
 </p>
 <p>
 <strong>Outcomes:</strong>
@@ -2130,26 +2195,32 @@ This project was our first dive into how machine learning and natural language p
 <ul class="simple">
 <li>
 <p>
-<a class="reference external" href="https://github.com/sul-dlss-labs/druid_2_text">druid_2_text</a> (to retrieve pdf from our repository and convert to txt for pre-processing)
+<a class="reference external" href="https://github.com/sul-dlss-labs/druid_2_text">druid_2_text</a>
+(to retrieve pdf from our repository and convert to txt for
+pre-processing)
 </p>
 </li>
 <li>
 <p>
-<a class="reference external" href="https://github.com/sul-dlss-labs/etd_structure_classifier">Document Structure Classifier</a> (to extract bibliographies)
+<a class="reference external" href="https://github.com/sul-dlss-labs/etd_structure_classifier">Document
+Structure Classifier</a> (to extract bibliographies)
 </p>
 </li>
 <li>
 <p>
-<a class="reference external" href="https://biology-fast-etds.herokuapp.com/">Biology ETDs FAST tagging app</a>
+<a class="reference external" href="https://biology-fast-etds.herokuapp.com/">Biology
+ETDs FAST tagging app</a>
 </p>
 </li>
 <li>
 <p>
-<a class="reference external" href="https://etd-abstract-similarity.herokuapp.com/">Abstract Similarity/clustering app</a>
+<a class="reference external" href="https://etd-abstract-similarity.herokuapp.com/">Abstract
+Similarity/clustering app</a>
 </p>
 </li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
