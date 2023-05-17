@@ -7,6 +7,11 @@ description: |
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+<p>The site began as a window into work at Stanford Libraries to build capacity in AI while experimenting with applications of AI on library materials and in library processes. We always approached building capacity as a cross-library effort. While an essential part of the effort was giving developers an opportunity to get their hands on new tools and understand new ways of working, it was also an effort to familiarize people from all parts of the library with the potential of AI so that they can identify useful applications of the technology, help shape the projects, assess outcomes (at every step) and bring domain expertise to the challenges that arise.</p>
+<p>The Stanford Libraries Steering Group formed in 2020 to shape and guide the effort. The group produced a document, <a href="https://github.com/sul-dlss-labs/ai-projects/raw/main/docs/Stanford%20Libraries%20AI%20Guiding%20Values.pdf">Stanford Libraries AI Guiding Values</a>, to explicitly address the ways we think the ethos of the library needs to be reflected in the ways we use this technology.</p>
+<p>The Steering Group also compiled a set of <a href="https://github.com/sul-dlss-labs/ai-projects/raw/main/docs/Stanford%20Libraries%20AI%20Project%20Guidelines.pdf">Project Development Guidelines</a> for library-based AI projects, drawing upon the guiding values as well as the lessons learned while developing the experimental projects described below.</p>
+
 In April 2020, Stanford Libraries chartered a group drawn from units across the library to steer its overall AI program, to ensure its various activities are well-communicated and integrated, and to drive individual project efforts. The group provides conceptual, strategic, and tactical steering for AI within the Libraries. 
 
 # 2020-2021 Steering Group
